@@ -5,7 +5,7 @@ var Explorer = require('./Explorer.js');
 var Index = React.createClass({
 	render: function(){
 		return(
-			<div style={{paddingTop:"30%"}} className="row">
+			<div className="main-app row">
 				<div className="col-lg-6">
 					<Explorer/>
 				</div>
