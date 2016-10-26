@@ -1,13 +1,31 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Form = require('./Form.js');
+var NewExplorer = require('./NewExplorer.js');
+var key = 0;
 
 var ExplorerGet = React.createClass({
-	handleChange4: function(newID){
-		this.setState({name: newID});
+	getInitialState: function(){
+		return{ 
+			explorers: [],
+			name: '',
+			method: this.props.method,
+			headers: ''
+		};
 	},
-	handleChange2: function(newHeaders){
-		this.setState({headers: newHeaders});
+	onClick: function(){
+		var abc = this.state.explorers;
+		abc.push(<NewExplorer key={key++} name={this.state.name} method={this.props.method} headers={this.state.headers}/>);
+		this.setState({explorers: abc});
+	},
+	handleChange: function(id, newData){
+		console.log(id);
+		if(id === "headers"){
+			this.setState({headers: newData});
+		}
+		else if(id === "name"){
+			this.setState({name: newData});
+		}
 	},
 	render: function(){
 		return(
@@ -20,23 +38,21 @@ var ExplorerGet = React.createClass({
 					<th>Model</th>
 				</tr>
 				<tr>
-					<td><Form id="ID" handleChange={this.handleChange4}/></td>
-					<td><Form handleChange={this.handleChange2}/></td>
+					<td><Form id="name" handleChange={this.handleChange}/></td>
+					<td><Form id="headers" handleChange={this.handleChange}/></td>
 
 					<td>
 <pre>{`
-var call = explorer('name'. {
-	url: 'https;//explorer.smartcar.com/developer',
-	method: 'Get',
-	headers: {
-		Content-Type(String),
-	},
-});
+headers: {
+   Content-Type(String)
+}
 `}</pre>
 					 </td>
 				</tr>
 			</tbody>
 			</table>
+			<button type="button" onClick={this.onClick}>Create Explorer</button>
+			{this.state.explorers}
 		</div>
 		)
 	}

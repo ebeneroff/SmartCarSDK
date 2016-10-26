@@ -6,7 +6,7 @@ var Index = React.createClass({
 	render: function(){
 		return(
 			<div className="main-app row">
-				<div className="col-lg-6">
+				<div className="container">
 					<Explorer/>
 				</div>
 			</div>

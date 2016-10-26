@@ -7,13 +7,14 @@ var Form = React.createClass({
     },
 	handleChange(event) {
     	this.setState({value: event.target.value});
-    	this.props.handleChange(event.target.value);
+    	this.props.handleChange(this.props.id, event.target.value);
   	},
 	render: function(){
 		return(
 			<div>
-        		<input type="text" 
+        		<textarea type="text" 
         		placeholder=""
+        		id={this.props.id}
           		value={this.state.value}
          		onChange={this.handleChange}
          		className="appForm" />

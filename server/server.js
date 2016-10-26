@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var servers = require('./app/models/DummyData.js');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -24,27 +23,36 @@ router.use(function(req, res, next){
 
 // test route
 router.get('/', function(req, res) {
+	res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-// server route
-router.route('/servers')
-	.get(function(req, res){
-	//simulate Kohl's API calls
-	servers[0].Online = !servers[0].Online;
-	console.log(servers[0].Online);
+router.post('/', function(req, res){
+	req.header("Access-Control-Allow-Origin", "*");
+    req.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	res.json({message: 'dope post request bro'});
+});
+
+router.put('/', function(req, res){
+	req.header("Access-Control-Allow-Origin", "*");
+    req.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	res.json({message: 'nice put request brah'});
+})
+
+router.delete('/', function(req, res){
 	res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	res.json({servers});
-});
+	res.json({message: 'congrats on the delete'});
+})
 
 // REGISTER OUR ROUTES
 // ==============================================
 app.use('/api', router);
 
-//app.listen(port);
+app.listen(port);
 console.log('Magic happens on port ' + port);
-var ipaddress = '127.0.0.1';
-var http = require('http');
-var httpServer = http.createServer(app);
-httpServer.listen(port, ipaddress);
+//var ipaddress = '127.0.0.1';
+//var http = require('http');
+//var httpServer = http.createServer(app);
+//httpServer.listen(port, ipaddress);

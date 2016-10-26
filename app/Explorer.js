@@ -6,23 +6,29 @@ var ExplorerDelete = require('./ExplorerDelete.js');
 var MethodSelector = require('./MethodSelector.js');
 
 var Explorer = React.createClass({
+	getInitialState: function(){
+		return {}
+	},
 	handleChange: function(newMethod){
 		this.setState({method: newMethod});
-		if(newMethod == "Post" || newMethod == "Put"){
-			ReactDOM.render(<ExplorerPutPost/>, document.getElementById("explorer"));
+		if(newMethod == "Post"){
+			ReactDOM.render(<ExplorerPutPost method="Post"/>, document.getElementById("explorer"));
+		}
+		else if(newMethod == "Put"){
+			ReactDOM.render(<ExplorerPutPost method="Put"/>, document.getElementById("explorer"));
 		}
 		else if(newMethod == "Get"){
-			ReactDOM.render(<ExplorerGet/>, document.getElementById("explorer"));
+			ReactDOM.render(<ExplorerGet method="Get"/>, document.getElementById("explorer"));
 		}
 		else{
-			ReactDOM.render(<ExplorerDelete/>, document.getElementById("explorer"));
+			ReactDOM.render(<ExplorerDelete method="Delete"/>, document.getElementById("explorer"));
 		}
 	},
 	render: function(){
 		return(
 			<div className="row">
-				<div className="col-sm-4">
-				<h4 style={{color:"white"}}> Create a smartcar explorer </h4>
+				<div className="col-sm-2">
+				<h4 style={{color:"white"}}> Create an explorer </h4>
 				<MethodSelector handleChange={this.handleChange}/>
 				 </div>
 				<div className="col-lg-6" id="explorer">
