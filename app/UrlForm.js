@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 
 var UrlForm = React.createClass({
 	getInitialState: function(){
-		return {url: 'localhost:8000/api'}
+		return {url: 'https://smartcarexplorer.herokuapp.com/api'}
 	},
 	handleChange(event) {
     	this.setState({value: event.target.value});

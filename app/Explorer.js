@@ -8,7 +8,7 @@ var UrlForm = require('./UrlForm.js');
 
 var Explorer = React.createClass({
 	getInitialState: function(){
-		return {url: 'localhost:8000/api'}
+		return {url: 'https://smartcarexplorer.herokuapp.com/api'}
 	},
 	componentWillMount: function(){
 		return ReactDOM.render(<MethodSelector handleChange={this.handleChange}/>, document.getElementById('method')),
