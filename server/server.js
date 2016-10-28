@@ -14,6 +14,12 @@ var router = express.Router();
 // middleware that logs all requests
 router.use(function(req, res, next){
 	console.log('Something is happening.');
+
+	//Allow Cross Origin Resource Sharing
+	res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', "GET, PUT, POST, DELETE");
+
 	// go to the next route!
 	next();
 });
@@ -23,26 +29,18 @@ router.use(function(req, res, next){
 
 // test route
 router.get('/', function(req, res) {
-	res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
 router.post('/', function(req, res){
-	req.header("Access-Control-Allow-Origin", "*");
-    req.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.json({message: 'dope post request bro'});
 });
 
 router.put('/', function(req, res){
-	req.header("Access-Control-Allow-Origin", "*");
-    req.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.json({message: 'nice put request brah'});
 })
 
 router.delete('/', function(req, res){
-	res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.json({message: 'congrats on the delete'});
 })
 

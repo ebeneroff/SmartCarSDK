@@ -13,7 +13,7 @@ var Form = React.createClass({
 		return(
 			<div>
         		<textarea type="text" 
-        		placeholder=""
+        		placeholder={this.props.placeholder}
         		id={this.props.id}
           		value={this.state.value}
          		onChange={this.handleChange}

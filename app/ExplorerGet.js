@@ -14,8 +14,9 @@ var ExplorerGet = React.createClass({
 		};
 	},
 	onClick: function(){
+		console.log(this.props.url);
 		var abc = this.state.explorers;
-		abc.push(<NewExplorer key={key++} name={this.state.name} method={this.props.method} headers={this.state.headers}/>);
+		abc.push(<NewExplorer key={key++} url={this.props.url} name={this.state.name} method={this.props.method} headers={this.state.headers}/>);
 		this.setState({explorers: abc});
 	},
 	handleChange: function(id, newData){
@@ -29,7 +30,7 @@ var ExplorerGet = React.createClass({
 	},
 	render: function(){
 		return(
-			<div>
+			<div className="divTable">
 			<table className="appTable">
 			<tbody className="appCol">
 				<tr>
@@ -38,20 +39,15 @@ var ExplorerGet = React.createClass({
 					<th>Model</th>
 				</tr>
 				<tr>
-					<td><Form id="name" handleChange={this.handleChange}/></td>
-					<td><Form id="headers" handleChange={this.handleChange}/></td>
-
+					<td><Form id="name" placeholder="MyExplorer"handleChange={this.handleChange}/></td>
+					<td><Form id="headers" placeholder="Content-Type: 'application/json'"handleChange={this.handleChange}/></td>
 					<td>
-<pre>{`
-headers: {
-   Content-Type(String)
-}
-`}</pre>
+					<pre className="explorerComponent">{`headers:{ \n   Content-Type(String) \n}`}</pre>
 					 </td>
 				</tr>
 			</tbody>
 			</table>
-			<button type="button" onClick={this.onClick}>Create Explorer</button>
+			<button type="button" className="explorerButtons"onClick={this.onClick}>Create Explorer</button>
 			{this.state.explorers}
 		</div>
 		)

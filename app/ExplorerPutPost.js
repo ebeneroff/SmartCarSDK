@@ -17,11 +17,10 @@ var ExplorerPutPost = React.createClass({
 	},
 	onClick: function(){
 		var abc = this.state.explorers;
-		abc.push(<NewExplorer key={key++} name={this.state.name} method={this.props.method} headers={this.state.headers} body={this.state.body}/>);
+		abc.push(<NewExplorer key={key++} url={this.props.url} name={this.state.name} method={this.props.method} headers={this.state.headers} body={this.state.body}/>);
 		this.setState({explorers: abc});
 	},
 	handleChange:function(id, newData){	
-		console.log(id);
 		if(id === "headers"){
 			this.setState({headers: newData});
 		}
@@ -34,7 +33,7 @@ var ExplorerPutPost = React.createClass({
 	},
 	render:function(){
 		return(
-			<div>
+			<div className="divTable">
 			<table className="appTable">
 			<tbody className="appCol">
 				<tr>
@@ -44,30 +43,18 @@ var ExplorerPutPost = React.createClass({
 					<th>Model</th>
 				</tr>
 				<tr>
-					<td><Form id="name" handleChange={this.handleChange}/></td>
-					<td><Form id="headers" handleChange={this.handleChange}/></td>
-					<td><Form id="body" handleChange={this.handleChange}/></td>
+					<td><Form id="name" placeholder="MyExplorer"handleChange={this.handleChange}/></td>
+					<td><Form id="headers" placeholder="Content-Type: 'application/json'"handleChange={this.handleChange}/></td>
+					<td><Form id="body" placeholder={`name: Evan, \ntype: String, \nrequired: true`} handleChange={this.handleChange}/></td>
 					<td>
-<pre style={{width:'300px'}}><code>{`
-headers: {
-   Content-Type(String)
-},
-body: [{
-   name(String),
-   type(String, optional),
-   min(Number, optional),
-   max(Number, optional),
-   placeholder(String, optional),
-   required(Boolean, optional),
-   pattern(String, optional)
-}]
-`}</code></pre>
+<pre className="explorerComponent">{`headers: {\n   Content-Type(String)\n},\nbody: [{\n   name(String),\n   type(String, optional),\n   min(Number, optional),\n   max(Number, optional),\n   placeholder(String, optional),\n   required(Boolean, optional),\n   pattern(String, optional)\n}]
+`}</pre>
 					 </td>
 				</tr>
 			</tbody>
 			</table>
 			
-			<button type="button" onClick={this.onClick}>Create Explorer</button>
+			<button type="button" className="explorerButtons" onClick={this.onClick}>Create Explorer</button>
 			{this.state.explorers}
 			</div>
 	)}

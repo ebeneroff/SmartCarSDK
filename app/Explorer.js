@@ -4,36 +4,42 @@ var ExplorerPutPost = require('./ExplorerPutPost.js');
 var ExplorerGet = require('./ExplorerGet.js');
 var ExplorerDelete = require('./ExplorerDelete.js');
 var MethodSelector = require('./MethodSelector.js');
+var UrlForm = require('./UrlForm.js');
 
 var Explorer = React.createClass({
 	getInitialState: function(){
-		return {}
+		return {url: 'localhost:8000/api'}
+	},
+	componentWillMount: function(){
+		return ReactDOM.render(<MethodSelector handleChange={this.handleChange}/>, document.getElementById('method')),
+			ReactDOM.render(<UrlForm handleChange={this.urlChange}/>, document.getElementById('urlForm'))
+	},
+	urlChange: function(url){
+		this.setState({url: url});
 	},
 	handleChange: function(newMethod){
-		this.setState({method: newMethod});
+		//Destroy old view
+		ReactDOM.render(<div></div>, document.getElementById("explorer"));
+		//Render new view
 		if(newMethod == "Post"){
-			ReactDOM.render(<ExplorerPutPost method="Post"/>, document.getElementById("explorer"));
+			ReactDOM.render(<ExplorerPutPost url={this.state.url} method="Post"/>, document.getElementById("explorer"));
 		}
 		else if(newMethod == "Put"){
-			ReactDOM.render(<ExplorerPutPost method="Put"/>, document.getElementById("explorer"));
+			ReactDOM.render(<ExplorerPutPost url={this.state.url} method="Put"/>, document.getElementById("explorer"));
 		}
 		else if(newMethod == "Get"){
-			ReactDOM.render(<ExplorerGet method="Get"/>, document.getElementById("explorer"));
+			ReactDOM.render(<ExplorerGet url={this.state.url} method="Get"/>, document.getElementById("explorer"));
 		}
 		else{
-			ReactDOM.render(<ExplorerDelete method="Delete"/>, document.getElementById("explorer"));
+			ReactDOM.render(<ExplorerDelete url={this.state.url} method="Delete"/>, document.getElementById("explorer"));
 		}
 	},
 	render: function(){
 		return(
-			<div className="row">
-				<div className="col-sm-2">
-				<h4 style={{color:"white"}}> Create an explorer </h4>
-				<MethodSelector handleChange={this.handleChange}/>
-				 </div>
-				<div className="col-lg-6" id="explorer">
+			<div className="row explorer">
+			<div className="welcome">Welcome to my API explorer! Click on a method to get started.</div>
+				<div className="container explorerWell" id="explorer">	
 				</div>
-				
 			</div>
 		)
 	}

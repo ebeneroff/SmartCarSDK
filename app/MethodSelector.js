@@ -3,23 +3,23 @@ var ReactDOM = require('react-dom');
 
 var MethodSelector = React.createClass({
     getInitialState:function(){
-        return {method:''};
+        return {method:'Get'};
     },
-    handleChange:function(e){
-    	console.log(e.target.value);
-        this.setState({method:e.target.value});
-        this.props.handleChange(e.target.value);
+    handleChange:function(event){
+        this.setState({method:event.target.value});
+        this.props.handleChange(event.target.value);
     },
     render: function() {
         return (
-        <div>
-         <select style={{border:'none', borderRadius:'5px', width:'90px', height:'40px', fontSize:'20px'}}defaultValue={this.props.method} onChange={this.handleChange}>
-            <option value="Get">Get</option>
-            <option value="Put">Put</option>
-            <option value="Post">Post</option>
-            <option value="Delete">Delete</option>
-          </select>
-        </div>        
+        <div style={{marginTop:'5vh', textAlign:'center', fontSize:'20px', color:'#FFF3F3'}}>
+        Methods
+         <div defaultValue={this.props.method} onClick={this.handleChange} className="btn-group">
+            <button value="Get">GET</button>
+            <button value="Put">PUT</button>
+            <button value="Post">POST</button>
+            <button value="Delete">DELETE</button>
+          </div> 
+        </div>
         )
     }
 });

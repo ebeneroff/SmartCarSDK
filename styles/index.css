@@ -1,45 +1,103 @@
 .main-app{
-	margin-top: 10%;
-	background-color: #C0392B;
+	margin-top: 75px;
+	margin-left: 40px;
+	/*background-color: #C0392B;*/
 	padding: 30px;
-	box-shadow: 0px 0px 5px black;
+	/*box-shadow: 0px 0px 2px gray;*/
+}
+.explorer{
+	background-color: white;
+	/*padding: 30px;*/
+	/*padding: 0px;*/
+	box-shadow: 0px 0px 1px gray;
+	/*border-radius: 5px;*/
+}
+.explorer #explorer{
+	padding-left: 0px;
+}
+.explorerButtons{
+	color: white;
+	padding: 10px;
+	font-size: 18px;
+	border:none;
+	border-radius: 1px;
+	align-content: center;
+	background-color: #F0594B;
 }
 .appTable{
-
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+.response{
+	color: rgba(33, 33, 33, .8);
+	width: 500px;
+	background-color:#F0EBEE;
+	border:none;
+	height: 210px;
+	border-radius: 0px;
+}
+.sidebar{
+	height:98vh;
+	width: 200px;
+	background-color: #C0392B;
+	z-index:1030;
+	padding: 0px;
+	box-shadow: 0px 0px 2px gray;
+}
+.btn-group{
+	/*border-top: solid 1px #ffdcd8;*/
+	/*border-bottom: solid 1px #ffdcd8;*/
+}
+.btn-group button{
+	font-weight: bold;
+	color: #fcc5bf;
+	font-size: 18px;
+	width: 200px;
+	height: 50px;
+	border:none;
+	background-color: #C0392B;
+}
+button:active{
+	background-color: #B0291B;
+}
+button:focus{
+	outline: #B0291B;
 }
 .appCol tr th{
-	padding: 30px;
-	color: #F0F0F0;
+	padding: 20px;
+	opacity: .7;
+	padding-bottom: 10px;
+	color: #D0493B;
+	font-size: 18px;
+	text-align: left;
 }
 .appCol tr td{
-	padding-right: 30px;
+	padding-right: 20px;
 }
 .appForm{
+	margin-left: 20px;
+	background-color: #F0EBEE;
 	border: none;
-	border-radius: 1px;
-	height: 200px;
+	/*border-radius: 5px;*/
+	height: 260px;
+	width: 220px;
+	font-size: 14px;
+	padding: 5px;
 }
 body{
-	background-color: #F0F0F0;
+	background-color: #F0EBEE;
 	font-family: 'Roboto', sans-serif;
-
 }
 .navbar{
-	background-image: none;
-	background-color: #C0392B !important;
+	background-color: #FFFFFF;
+	height: 60px;
+	box-shadow: 0px 0px 1px gray;
 }
 .navbar-brand{
 	padding-top:0;
 }
-.navbar{
-	height: 90px;
-	box-shadow: 0px 0px 5px black;
-	border: none;
-}
-.navbar-bottom{
-	height: 40px;
-}
 .credits{
+	margin-top: 45vh;
 	font-size: 18px;
 	color: white;
 	position: relative;
@@ -47,11 +105,12 @@ body{
 	text-align: center;
 }
 .credits a{
-	color: #DDDDDD;
+	color: #fcc5bf;
 }
-.navbar img {
+.img {
   height: 90px;
   width: 180px;
+  margin-left:0px;
 }
 .sdk
 {
@@ -81,3 +140,94 @@ body{
   text-align: left;
   vertical-align: middle;
 }
+.welcome {
+	color: white;
+	background-color: #F0594B;
+	font-size: 20px;
+	position: relative;
+	text-align:center;
+	padding: 31px;
+}
+.UrlForm{
+	margin-left: 20vh;
+	text-align: center;
+}
+.UrlForm input{
+	height: 60px;
+	border: none;
+	background-color: inherit;
+	font-size: 20px;
+	opacity:.7;
+}
+.UrlForm input:focus{
+	outline: none;
+}
+.explorerComponent{
+	 width: 330px;
+	 height: 260px;
+	 background-color:#F0EBEE;
+	 border:none;
+	 border-radius: 0px;
+	 margin-left: 10px;
+	 font-weight: bold;
+	 color: #555555;
+	 opacity: .7;
+}
+.explorer {
+    -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+    -moz-animation: fadein 2.5s; /* Firefox */
+    -ms-animation: fadein 2.5s; /* Internet Explorer */
+    -o-animation: fadein 2.5s; /* Opera */
+    animation: fadein 2.5s;
+}
+
+.newExplorer{
+	-webkit-animation: fadein 1s; /* Safari and Chrome */
+    -moz-animation: fadein 1s; /* Firefox */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera */
+    animation: fadein 1s;
+}
+.divTable{
+	-webkit-animation: fadein 1s; /* Safari and Chrome */
+    -moz-animation: fadein 1s; /* Firefox */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera */
+    animation: fadein 1s;
+}
+.response{
+	-webkit-animation: fadein 1s; /* Safari and Chrome */
+    -moz-animation: fadein 1s; /* Firefox */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera */
+    animation: fadein 1s;
+}
+    
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
