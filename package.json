@@ -5,10 +5,16 @@
   "main": "index.js",
   "scripts": {
     "production": "webpack -p",
-    "start": "webpack-dev-server"
+    "build": "webpack --config ./webpack.config.js --progress --colors",
+    "start": "node ./server/app.js"
   },
   "author": "Evan Beneroff",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+},
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
