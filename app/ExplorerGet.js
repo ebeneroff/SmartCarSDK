@@ -14,13 +14,11 @@ var ExplorerGet = React.createClass({
 		};
 	},
 	onClick: function(){
-		console.log(this.props.url);
 		var abc = this.state.explorers;
 		abc.push(<NewExplorer key={key++} url={this.props.url} name={this.state.name} method={this.props.method} headers={this.state.headers}/>);
 		this.setState({explorers: abc});
 	},
 	handleChange: function(id, newData){
-		console.log(id);
 		if(id === "headers"){
 			this.setState({headers: newData});
 		}
@@ -36,11 +34,13 @@ var ExplorerGet = React.createClass({
 				<tr>
 					<th>Component ID</th>
 					<th>Headers</th>
+					<th> </th>
 					<th>Model</th>
 				</tr>
 				<tr>
 					<td><Form id="name" placeholder="MyExplorer"handleChange={this.handleChange}/></td>
 					<td><Form id="headers" placeholder="Content-Type: 'application/json'"handleChange={this.handleChange}/></td>
+					<td style={{width:'350px'}}> </td>
 					<td>
 					<pre className="explorerComponent">{`headers:{ \n   Content-Type(String) \n}`}</pre>
 					 </td>

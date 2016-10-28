@@ -16,9 +16,8 @@ var NewExplorer = React.createClass({
 	onClick: function(){
 		// Refactor to remove repeated code
 		if(this.props.method === "Get"){
-		axios.get('http://' + this.props.url)
+		axios.get(this.props.url)
 			.then(function(response){
-				console.log(response);
 				this.setState({response: <div> Your Response <pre className="response"> {JSON.stringify(response, null, "  ")} </pre> </div>});
 			}.bind(this))
 			.catch(function(error){
@@ -26,9 +25,8 @@ var NewExplorer = React.createClass({
 			}.bind(this));
 		}
 		else if(this.props.method === "Post"){
-			axios.post('http://' + this.props.url)
+			axios.post(this.props.url)
 			.then(function(response){
-				console.log(response);
 				this.setState({response: <div> Your Response <pre className="response"> {JSON.stringify(response, null, "  ")} </pre> </div>});
 			}.bind(this))
 			.catch(function(error){
@@ -36,7 +34,7 @@ var NewExplorer = React.createClass({
 			}.bind(this))
 		}
 		else if(this.props.method === "Put"){
-			axios.put('http://' + this.props.url)
+			axios.put(this.props.url)
 			.then(function(response){
 				this.setState({response: <div> Your Response <pre className="response"> {JSON.stringify(response, null, "  ")} </pre> </div>});
 			}.bind(this))
@@ -45,7 +43,7 @@ var NewExplorer = React.createClass({
 			}.bind(this));
 		}
 		else if(this.props.method === "Delete"){
-			axios.delete('http://' + this.props.url)
+			axios.delete(this.props.url)
 			.then(function(response){
 				this.setState({response: <div> Your Response <pre className="response"> {JSON.stringify(response, null, "  ")} </pre> </div>});
 			}.bind(this))
@@ -60,12 +58,12 @@ var NewExplorer = React.createClass({
 
 			<div className="col-sm-6" style={{paddingTop: '10px', paddingLeft: '0px'}}>
 			<span style={{opacity: ".7", color: '#D0493B', fontSize: '18px', fontWeight: 'bold', paddingLeft:'30px'}}> Your Component</span>
-<pre style={{width:'500px', marginLeft: '30px', backgroundColor:'#F0EBEE', border:'none', height: '210px', fontWeight:'bold', opacity: '.6'}}>
+<pre style={{width:'500px', marginLeft: '30px', backgroundColor:'#F0EBEE', border:'none', height: '210px', fontWeight:'bold', color:'rgba(55, 55, 55, .7)'}}>
 	{html}
 </pre>
 <button type="button"  className="explorerButtons" onClick={this.onClick}>Explore Request</button>
 </div>
-				<div className="col-sm-6" style={{opacity: ".7", color: '#D0493B', fontSize: '18px', fontWeight: 'bold', paddingTop: '10px'}}>
+				<div className="col-sm-6" style={{color: '#D0493B', fontSize: '18px', fontWeight: 'bold', paddingTop: '10px', paddingLeft:'30px'}}>
 				
 				{this.state.response}
 			</div>
