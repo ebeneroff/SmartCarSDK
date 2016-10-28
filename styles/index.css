@@ -76,6 +76,10 @@ button:focus{
 	font-size: 14px;
 	padding: 5px;
 }
+.appForm:focus{
+	box-shadow:0 0 5px #C0392B;
+	outline: none;
+}
 body{
 	background-color: #F0EBEE;
 	font-family: 'Roboto', sans-serif;
@@ -187,39 +191,52 @@ body{
     -o-animation: fadein 1s; /* Opera */
     animation: fadein 1s;
 }
+.divTable span{
+	font-size: 18px;
+	color: #D0493B;
+	font-weight: bold;
+	opacity: .7;
+}
 .response{
 	-webkit-animation: fadein 1s; /* Safari and Chrome */
     -moz-animation: fadein 1s; /* Firefox */
     -ms-animation: fadein 1s; /* Internet Explorer */
     -o-animation: fadein 1s; /* Opera */
     animation: fadein 1s;
-}
-    
+}   
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
 /* Firefox */
 @-moz-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
 /* Safari and Chrome */
 @-webkit-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
 /* Internet Explorer */
 @-ms-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }​
-
 /* Opera */
 @-o-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }​
+.divTable span {
+   -webkit-animation: shake .2s linear 2s 4;
+   animation: shake .2s linear 2s 4;
+}
+@-webkit-keyframes shake {
+   0% { transform: translateX(-5px); }
+   50% { transform: translateX(5px); }
+}
+@keyframes shake {
+   0% { transform: translateX(-5px); }
+   50% { transform: translateX(5px); }
+}*/

@@ -7,22 +7,31 @@ var key = 0;
 var ExplorerGet = React.createClass({
 	getInitialState: function(){
 		return{ 
-			explorers: [],
-			name: '',
+			explorers: undefined,
+			name: undefined,
 			method: this.props.method,
-			headers: ''
+			headers: "Content-Type: 'application/json'"
 		};
 	},
 	onClick: function(){
 		var abc = this.state.explorers;
-		abc.push(<NewExplorer key={key++} url={this.props.url} name={this.state.name} method={this.props.method} headers={this.state.headers}/>);
-		this.setState({explorers: abc});
+		if(this.state.name == undefined){
+			this.setState({explorers: <span key={key++}> One or more fields are empty! </span>})
+		}
+		else if(this.state.headers == undefined)
+		{
+			this.setState({explorers: <span key={key++}> Content-Type must be type application/json </span>})
+		}
+		else{
+			this.setState({explorers: <NewExplorer key={key++} url={this.props.url} name={this.state.name} method={this.props.method} headers={this.state.headers}/>});
+		}
 	},
 	handleChange: function(id, newData){
-		if(id === "headers"){
-			this.setState({headers: newData});
-		}
-		else if(id === "name"){
+		// Header must be Content-Type: 'application/json'
+		// if(id === "headers"){
+		// 	this.setState({headers: newData});
+		// }
+		if(id === "name"){
 			this.setState({name: newData});
 		}
 	},
@@ -38,8 +47,8 @@ var ExplorerGet = React.createClass({
 					<th>Model</th>
 				</tr>
 				<tr>
-					<td><Form id="name" placeholder="MyExplorer"handleChange={this.handleChange}/></td>
-					<td><Form id="headers" placeholder="Content-Type: 'application/json'"handleChange={this.handleChange}/></td>
+					<td><Form id="name" placeholder="MyExplorer" handleChange={this.handleChange}/></td>
+					<td><Form id="headers" value={`Content-Type: 'application/json'`} handleChange={this.handleChange}/></td>
 					<td style={{width:'350px'}}> </td>
 					<td>
 					<pre className="explorerComponent">{`headers:{ \n   Content-Type(String) \n}`}</pre>

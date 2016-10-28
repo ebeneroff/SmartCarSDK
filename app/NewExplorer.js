@@ -14,6 +14,8 @@ var NewExplorer = React.createClass({
 		html = Parser(this.props.name, this.props.method, this.props.headers, this.props.body, this.props.url);
 	},
 	onClick: function(){
+		var headers = this.props.headers;
+		var body = this.props.body;
 		// Refactor to remove repeated code
 		if(this.props.method === "Get"){
 		axios.get(this.props.url)
@@ -25,7 +27,10 @@ var NewExplorer = React.createClass({
 			}.bind(this));
 		}
 		else if(this.props.method === "Post"){
-			axios.post(this.props.url)
+			axios.post(this.props.url, {
+				headers: {headers},
+				body: {body}
+			})
 			.then(function(response){
 				this.setState({response: <div> Your Response <pre className="response"> {JSON.stringify(response, null, "  ")} </pre> </div>});
 			}.bind(this))
@@ -34,7 +39,10 @@ var NewExplorer = React.createClass({
 			}.bind(this))
 		}
 		else if(this.props.method === "Put"){
-			axios.put(this.props.url)
+			axios.put(this.props.url, {
+				headers: {headers},
+				body: {body}
+			})
 			.then(function(response){
 				this.setState({response: <div> Your Response <pre className="response"> {JSON.stringify(response, null, "  ")} </pre> </div>});
 			}.bind(this))
@@ -43,7 +51,10 @@ var NewExplorer = React.createClass({
 			}.bind(this));
 		}
 		else if(this.props.method === "Delete"){
-			axios.delete(this.props.url)
+			axios.delete(this.props.url, {
+				headers: {headers},
+				body: {body}	
+			})
 			.then(function(response){
 				this.setState({response: <div> Your Response <pre className="response"> {JSON.stringify(response, null, "  ")} </pre> </div>});
 			}.bind(this))

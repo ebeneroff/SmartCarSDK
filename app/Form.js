@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 
 var Form = React.createClass({
 	getInitialState:function(){
-        return {value: ''};
+        return {value: this.props.value};
   },
   handleChange: function(event){
     	this.setState({value: event.target.value});
@@ -15,7 +15,7 @@ var Form = React.createClass({
         		<textarea type="text" 
         		placeholder={this.props.placeholder}
         		id={this.props.id}
-          		value={this.state.value}
+          	value={this.props.value}
          		onChange={this.handleChange}
          		className="appForm" />
       		</div>

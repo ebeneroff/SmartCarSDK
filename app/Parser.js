@@ -1,7 +1,6 @@
 var Parser = function(name, method, headers, body, url){
 	var html = "";
 	html += "<div id='" + name + "'></div \n";
-	//html += "<script type='text/javascript' src='./index.js></script> \n";
 	html += "<script type='text/javascript'>\n";
 	html += "  explorer('" + name + "', {\n";
 	html += "   url: '" + url + ",\n"
