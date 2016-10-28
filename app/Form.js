@@ -4,11 +4,11 @@ var ReactDOM = require('react-dom');
 var Form = React.createClass({
 	getInitialState:function(){
         return {value: ''};
-    },
-	handleChange(event) {
+  },
+  handleChange: function(event){
     	this.setState({value: event.target.value});
     	this.props.handleChange(this.props.id, event.target.value);
-  	},
+  },
 	render: function(){
 		return(
 			<div>

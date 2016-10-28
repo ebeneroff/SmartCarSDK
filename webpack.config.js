@@ -1,4 +1,4 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
@@ -15,7 +15,9 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
+      {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader", query: {
+        presets: ['es2015', 'react']
+      }},
     ]
   },
   plugins: [HTMLWebpackPluginConfig]
