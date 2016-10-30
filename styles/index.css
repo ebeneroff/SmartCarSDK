@@ -1,7 +1,7 @@
 .main-app{
-	margin-top: 75px;
-	margin-left: 40px;
-	padding: 30px;
+	margin-top: 10vh;
+	margin-left: 1vw;
+	/*padding: 30px;*/
 }
 .explorer{
 	background-color: white;
@@ -34,7 +34,7 @@
 	border-radius: 0px;
 }
 .sidebar{
-	height:98vh;
+	height:100vh;
 	width: 200px;
 	background-color: #C0392B;
 	z-index:1030;
@@ -93,11 +93,9 @@ body{
 	padding-top:0;
 }
 .credits{
-	margin-top: 45vh;
+	margin-top: 40vh;
 	font-size: 18px;
 	color: white;
-	position: relative;
-	padding-top: 12px;
 	text-align: center;
 }
 .credits a{
