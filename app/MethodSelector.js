@@ -11,7 +11,7 @@ var MethodSelector = React.createClass({
     },
     render: function() {
         return (
-        <div style={{marginTop:'5vh', textAlign:'center', fontSize:'20px', color:'#FFF3F3'}}>
+        <div style={{marginTop:'25vh', textAlign:'center', fontSize:'20px', color:'#FFF3F3'}}>
         Methods
          <div defaultValue={this.props.method} onClick={this.handleChange} className="btn-group">
             <button value="Get">GET</button>
